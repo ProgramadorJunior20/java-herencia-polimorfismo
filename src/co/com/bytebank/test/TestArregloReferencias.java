@@ -1,24 +1,39 @@
 package co.com.bytebank.test;
 
-import co.com.bytebank.modelo.CuentaCorriente;
+import co.com.bytebank.modelo.*;
 
 public class TestArregloReferencias {
 	
 	public static void main(String[] args) {
 		
+		Object[] referencias = new Object[5];
+		
 		CuentaCorriente cc = new CuentaCorriente(23, 44);
 		
-		CuentaCorriente[] cuentas = new CuentaCorriente[5];
-		cuentas[1] = cc;
 		
-		System.out.println(cc);
-		System.out.println("Array Cuentas: " + cuentas[1]);
+		referencias[1] = cc;
 		
-		cuentas[0] = new CuentaCorriente(22, 33);
-		System.out.println("Array Cuentas: " + cuentas[0]);
+		Cliente cliente = new Cliente();
+		referencias[4] = cliente;
 		
-		for(int i = 0; i < cuentas.length; i++) {
-			System.out.println(cuentas[i]);
+		Cliente obtenido = (Cliente) referencias[4];
+		System.out.println(obtenido);
+		
+		CuentaAhorros ca = new CuentaAhorros(44, 55);
+		referencias[3] = ca;
+		
+		//System.out.println(cc);
+		//System.out.println("Array Cuentas: " + cuentas[1]);
+		
+		referencias[0] = new CuentaCorriente(22, 33);
+		System.out.println("Array Cuentas: " + referencias[0]);
+		
+		// Cast
+		CuentaCorriente cuenta = (CuentaCorriente) referencias[1];
+		System.out.println("cuenta casteada: " + cuenta);
+		
+		for(int i = 0; i < referencias.length; i++) {
+			System.out.println(referencias[i]);
 		}
 		
 	}

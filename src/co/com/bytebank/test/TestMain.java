@@ -4,6 +4,12 @@ public class TestMain {
 	
 	public static void main(String[] args) {
 		
+		System.out.println("------------------");
+		for(int i = 0; i < args.length; i++) {
+			System.out.println(args[i]);
+		}
+		System.out.println("------------------");
+		
 		int edad = 15;
 		int edad2 = 20;
 		int edad3 = 25;
